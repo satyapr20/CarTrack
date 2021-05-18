@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">CarTrack</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_country">Country</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_log_out">Logout!</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="action_remember_me"> Remember Me </string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string-array name="countries_with_cartrack_services">
+        <item>Singapore</item>
+        <item>South Africa</item>
+        <item>United States</item>
+        <item>United Kingdom</item>
+        <item>Ireland</item>
+        <item>Indonesia</item>
+        <item>India</item>
+        <item>Vietnam</item>
+        <item>China</item>
+        <item>Thailand</item>
+        <item>Malaysia</item>
+        <item>India</item>
+        <item>UAE</item>
+        <item>Qatar</item>
+        <item>Taiwan</item>
+        <item>Japan</item>
+        <item>Russia</item>
+    </string-array>
+
+</resources>
