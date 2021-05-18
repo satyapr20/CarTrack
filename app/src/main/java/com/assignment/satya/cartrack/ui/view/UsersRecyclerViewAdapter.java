@@ -1,8 +1,12 @@
 package com.assignment.satya.cartrack.ui.view;
 
 import java.util.List;
+import java.util.Locale;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +58,20 @@ public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecycler
         // - replace the contents of the view with that element
         final RestUserModel row = values.get(position);
         holder.txtHeader.setText(row.getName());
+        holder.txtHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String label = row.getAddress().getStreet();
+                String uriBegin = "geo:" + row.getAddress().getGeo().getLat() + "," + row.getAddress().getGeo().getLng();
+                String query = row.getAddress().getGeo().getLat() + "," + row.getAddress().getGeo().getLng() +"(" + label + ")";
+                String encodedQuery = Uri.encode(query);
+                String uriString = uriBegin + "?q=" + encodedQuery;
+                Uri uri = Uri.parse(uriString);
+                Intent mapIntent = new Intent(android.content.Intent.ACTION_VIEW, uri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                holder.txtHeader.getContext().startActivity(mapIntent);
+            }
+        });
         holder.txtFooter.setText(row.getEmail());
     }
 

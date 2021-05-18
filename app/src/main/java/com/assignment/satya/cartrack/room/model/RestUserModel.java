@@ -1,9 +1,11 @@
 
 package com.assignment.satya.cartrack.room.model;
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.assignment.satya.cartrack.data.model.Address;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,6 +25,10 @@ public class RestUserModel {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("address")
+    @Expose
+    @Embedded
+    private Address address;
 
     public int getId() {
         return id;
@@ -54,5 +60,13 @@ public class RestUserModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
