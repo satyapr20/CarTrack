@@ -1,15 +1,15 @@
 package com.assignment.satya.cartrack.ui.login;
 
+import android.util.Patterns;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
-
+import com.assignment.satya.cartrack.R;
 import com.assignment.satya.cartrack.data.LoginRepository;
 import com.assignment.satya.cartrack.data.Result;
 import com.assignment.satya.cartrack.data.model.LoggedInUser;
-import com.assignment.satya.cartrack.R;
 
 public class LoginViewModel extends ViewModel {
 

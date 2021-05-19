@@ -1,10 +1,5 @@
 package com.assignment.satya.cartrack.ui.view;
 
-import java.util.List;
-import java.util.Locale;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -12,8 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.assignment.satya.cartrack.R;
 import com.assignment.satya.cartrack.room.model.RestUserModel;
+
+import java.util.List;
 
 public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecyclerViewAdapter.ViewHolder> {
     private List<RestUserModel> values;
@@ -63,7 +62,7 @@ public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecycler
             public void onClick(View v) {
                 String label = row.getAddress().getStreet();
                 String uriBegin = "geo:" + row.getAddress().getGeo().getLat() + "," + row.getAddress().getGeo().getLng();
-                String query = row.getAddress().getGeo().getLat() + "," + row.getAddress().getGeo().getLng() +"(" + label + ")";
+                String query = row.getAddress().getGeo().getLat() + "," + row.getAddress().getGeo().getLng() + "(" + label + ")";
                 String encodedQuery = Uri.encode(query);
                 String uriString = uriBegin + "?q=" + encodedQuery;
                 Uri uri = Uri.parse(uriString);

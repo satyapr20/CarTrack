@@ -4,18 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.net.NetworkInfo;
-import android.os.Bundle;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.assignment.satya.cartrack.R;
 import com.assignment.satya.cartrack.room.model.RestUserModel;
@@ -36,8 +35,8 @@ public class UsersListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-        logoutButton = (Button)findViewById(R.id.logout);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        logoutButton = (Button) findViewById(R.id.logout);
 
         sharedPreferences = getSharedPreferences("details", MODE_PRIVATE);
 
@@ -62,14 +61,14 @@ public class UsersListActivity extends AppCompatActivity {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.clear();
                 edit.commit();
-                Intent intent=new Intent(UsersListActivity.this, LoginActivity.class);
+                Intent intent = new Intent(UsersListActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
 
-    public boolean isNetworkConnected(Context context){
+    public boolean isNetworkConnected(Context context) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();

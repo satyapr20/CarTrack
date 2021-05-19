@@ -1,6 +1,7 @@
 package com.assignment.satya.cartrack.ui.users;
 
 import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 
 import com.assignment.satya.cartrack.CarTrackApp;
@@ -27,10 +28,10 @@ public class UsersRepository {
 
     public void ApiCallAndPutInDB() {
         Gson gson = new Gson();
-        Retrofit retrofit =  new Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl(BASE_URL)
-            .build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(BASE_URL)
+                .build();
 
         RestApi restApi = retrofit.create(RestApi.class);
 
@@ -39,9 +40,9 @@ public class UsersRepository {
         call.enqueue(new Callback<List<RestUserModel>>() {
             @Override
             public void onResponse(Call<List<RestUserModel>> call, Response<List<RestUserModel>> response) {
-                Log.e("Satya",response.body().toString());
-                if(response.code() == 200) {
-                    new Thread(new Runnable(){
+                Log.e("Satya", response.body().toString());
+                if (response.code() == 200) {
+                    new Thread(new Runnable() {
                         @Override
                         public void run() {
                             CarTrackApp.database.restUserDao().deleteAllUsers();
@@ -53,7 +54,7 @@ public class UsersRepository {
 
             @Override
             public void onFailure(Call<List<RestUserModel>> call, Throwable t) {
-                Log.e(TAG,"OOPS!! something went wrong..");
+                Log.e(TAG, "OOPS!! something went wrong..");
             }
         });
     }

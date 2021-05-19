@@ -1,20 +1,11 @@
 package com.assignment.satya.cartrack.ui.login;
 
 import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -27,10 +18,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.assignment.satya.cartrack.databinding.ActivityLoginBinding;
-
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.assignment.satya.cartrack.R;
+import com.assignment.satya.cartrack.databinding.ActivityLoginBinding;
 import com.assignment.satya.cartrack.ui.users.UsersListActivity;
 
 
@@ -54,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         sharedPreferences = getSharedPreferences("details", MODE_PRIVATE);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -149,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(rememberMeSwitch.isChecked()) {
+        if (rememberMeSwitch.isChecked()) {
             editor.putBoolean("loggedIn", true);
         } else {
             editor.putBoolean("loggedIn", false);
@@ -157,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(LoginActivity.this, UsersListActivity.class);
+        Intent intent = new Intent(LoginActivity.this, UsersListActivity.class);
         startActivity(intent);
         finish();
     }

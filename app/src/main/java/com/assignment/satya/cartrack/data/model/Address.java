@@ -1,4 +1,3 @@
-
 package com.assignment.satya.cartrack.data.model;
 
 import androidx.room.Embedded;

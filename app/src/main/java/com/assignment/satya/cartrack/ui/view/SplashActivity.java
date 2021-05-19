@@ -54,10 +54,10 @@ public class SplashActivity extends AwesomeSplash {
     public void animationsFinished() {
         sharedPreferences = getSharedPreferences("details", MODE_PRIVATE);
         if (sharedPreferences.contains("loggedIn") && sharedPreferences.getBoolean("loggedIn", false)) {
-            Intent intent=new Intent(SplashActivity.this, UsersListActivity.class);
+            Intent intent = new Intent(SplashActivity.this, UsersListActivity.class);
             startActivity(intent);
         } else {
-            Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
         }
         finish();
