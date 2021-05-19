@@ -7,3 +7,4 @@ Project contains below screen :
 1) Splash screen
 2) Login Screen
 3) Users List Scren
+4) Google map screen of user's location.
